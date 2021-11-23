@@ -17,6 +17,8 @@ public class MoveCamera : MonoBehaviour {
     float xRotation;
     float yRotation;
 
+    [SerializeField]Transform plyaer;
+
     void Start()
     {
         cam = GameObject.Find("eyes").GetComponent<Camera>();
@@ -46,6 +48,6 @@ public class MoveCamera : MonoBehaviour {
     void ControlCamera()
     {
         cam.transform.localRotation = Quaternion.Euler(xRotation, 0, 0);
-        transform.rotation = Quaternion.Euler(0, yRotation, 0);
+        plyaer.transform.rotation = Quaternion.Euler(0, yRotation, 0);
     }
 }
