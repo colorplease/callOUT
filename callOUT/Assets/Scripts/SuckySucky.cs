@@ -66,7 +66,13 @@ public class SuckySucky : MonoBehaviour
             if (sucking)
             {
                 //object attraction when sucking
-                other.transform.position = Vector3.MoveTowards(other.transform.position, suckPoint.position, suckStrength * Time.deltaTime);
+                Vector3 movePos = other.transform.position;
+                movePos.x = Mathf.MoveTowards(other.transform.position.x, suckPoint.position.x, suckStrength * Time.deltaTime / other.attachedRigidbody.mass);
+                movePos.y = Mathf.MoveTowards(other.transform.position.y, suckPoint.position.y, suckStrength * Time.deltaTime / other.attachedRigidbody.mass);
+                movePos.z = Mathf.MoveTowards(other.transform.position.z, suckPoint.position.z, suckStrength * Time.deltaTime / other.attachedRigidbody.mass);
+                other.attachedRigidbody.MovePosition(movePos);
+
+
             }  
         }
     }
