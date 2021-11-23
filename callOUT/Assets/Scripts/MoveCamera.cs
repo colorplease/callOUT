@@ -1,8 +1,10 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MoveCamera : MonoBehaviour {
 
-     [SerializeField] private float sensX;
+    [SerializeField] private float sensX;
     [SerializeField] private float sensY;
 
     Camera cam;
@@ -37,7 +39,7 @@ public class MoveCamera : MonoBehaviour {
         yRotation += mouseX * sensX * mouseMultiplier * 2;
         xRotation -= mouseY * sensY * mouseMultiplier * 2;
 
-        xRotation = Mathf.Clamp(xRotation, -90f, 90f);
+        xRotation = Mathf.Clamp(xRotation, 0f, 0f);
 
     }
 
