@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class SuckySucky : MonoBehaviour
 {
+    [Header("Suck Logic")]
     [SerializeField]bool sucking;
     bool playingStartSuck;
+    [Header("Keybinds")]
     public KeyCode suck;
+    [Header("Suck Settings")]
     [SerializeField]float suckStrength;
     [SerializeField]float suckStrengthMultiplier;
 
     [SerializeField]float maxSuckStrength;
+    [Header("Other")]
     [SerializeField]Transform suckPoint;
+    [Header("Audio")]
     [SerializeField]AudioSource vac;
     [SerializeField]AudioClip fullVac;
     [SerializeField]AudioClip stopVac;
+    [Header("VFX")]
+    [SerializeField]ParticleSystem suckyAir;
 
     void Start()
     {
+        //Define Vacuum Audio Source
         vac = GameObject.Find("Sucky").GetComponent<AudioSource>();
     }
     // Update is called once per frame
@@ -25,19 +33,24 @@ public class SuckySucky : MonoBehaviour
     {
         if (Input.GetKey(suck))
         {
+            //When Sucking, execute
             sucking = true;
             playingStartSuck = true;
             SUCK();
         }
         if (Input.GetKeyDown(suck))
         {
+            //When Sucking, execute ONCE
             vac.Stop();
+            suckyAir.Play();
         }
         if (Input.GetKeyUp(suck))
         {
+            //When no longer sucking, execute
             sucking = false;
             suckStrength = 0;
             vac.Stop();
+            suckyAir.Stop(true, ParticleSystemStopBehavior.StopEmitting);
             if (playingStartSuck == true)
             {
                 vac.PlayOneShot(stopVac);
@@ -52,6 +65,7 @@ public class SuckySucky : MonoBehaviour
         {
             if (sucking)
             {
+                //object attraction when sucking
                 other.transform.position = Vector3.MoveTowards(other.transform.position, suckPoint.position, suckStrength * Time.deltaTime);
             }  
         }
@@ -61,6 +75,7 @@ public class SuckySucky : MonoBehaviour
     {
         if (suckStrength <= maxSuckStrength)
         {
+            //suck strength
             suckStrength += suckStrengthMultiplier * Time.deltaTime;
         }
         if (!vac.isPlaying)

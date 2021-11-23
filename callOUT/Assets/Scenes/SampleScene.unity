@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 35074681}
   - component: {fileID: 35074680}
   - component: {fileID: 35074679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (7)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 407908470}
   - component: {fileID: 407908469}
   - component: {fileID: 407908468}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (8)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -774,7 +774,7 @@ GameObject:
   - component: {fileID: 504748998}
   - component: {fileID: 504748997}
   - component: {fileID: 504748996}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (14)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -888,7 +888,7 @@ GameObject:
   - component: {fileID: 667555504}
   - component: {fileID: 667555503}
   - component: {fileID: 667555502}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (12)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -1082,7 +1082,7 @@ GameObject:
   - component: {fileID: 934284089}
   - component: {fileID: 934284092}
   m_Layer: 0
-  m_Name: Particle System
+  m_Name: suckysucksuck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1178,7 +1178,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 1
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -6157,7 +6157,7 @@ GameObject:
   - component: {fileID: 1195193585}
   - component: {fileID: 1195193584}
   - component: {fileID: 1195193583}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (4)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -6271,7 +6271,7 @@ GameObject:
   - component: {fileID: 1350844511}
   - component: {fileID: 1350844510}
   - component: {fileID: 1350844509}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (10)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -6385,7 +6385,7 @@ GameObject:
   - component: {fileID: 1353045702}
   - component: {fileID: 1353045701}
   - component: {fileID: 1353045700}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (1)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -6628,7 +6628,7 @@ GameObject:
   - component: {fileID: 1593267438}
   - component: {fileID: 1593267437}
   - component: {fileID: 1593267436}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (5)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -6742,7 +6742,7 @@ GameObject:
   - component: {fileID: 1627345990}
   - component: {fileID: 1627345989}
   - component: {fileID: 1627345988}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (11)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -6937,7 +6937,7 @@ GameObject:
   - component: {fileID: 1741362437}
   - component: {fileID: 1741362436}
   - component: {fileID: 1741362435}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (13)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7051,7 +7051,7 @@ GameObject:
   - component: {fileID: 1815453323}
   - component: {fileID: 1815453322}
   - component: {fileID: 1815453321}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (16)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7262,7 +7262,7 @@ GameObject:
   - component: {fileID: 1868049486}
   - component: {fileID: 1868049485}
   - component: {fileID: 1868049484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (9)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7376,7 +7376,7 @@ GameObject:
   - component: {fileID: 1893926091}
   - component: {fileID: 1893926090}
   - component: {fileID: 1893926089}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (6)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7490,7 +7490,7 @@ GameObject:
   - component: {fileID: 2056760486}
   - component: {fileID: 2056760485}
   - component: {fileID: 2056760484}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (15)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7604,7 +7604,7 @@ GameObject:
   - component: {fileID: 2064907951}
   - component: {fileID: 2064907950}
   - component: {fileID: 2064907949}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (18)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7718,7 +7718,7 @@ GameObject:
   - component: {fileID: 2083562220}
   - component: {fileID: 2083562219}
   - component: {fileID: 2083562218}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (17)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7832,7 +7832,7 @@ GameObject:
   - component: {fileID: 2088905472}
   - component: {fileID: 2088905471}
   - component: {fileID: 2088905470}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Cube (2)
   m_TagString: Suckable
   m_Icon: {fileID: 0}
@@ -7987,6 +7987,7 @@ MonoBehaviour:
   vac: {fileID: 0}
   fullVac: {fileID: 8300000, guid: 949efcdd5a5a3bc4485fc88269ec825a, type: 3}
   stopVac: {fileID: 8300000, guid: 45324c9316001be4a924c670dd47ff31, type: 3}
+  suckyAir: {fileID: 934284090}
 --- !u!65 &4513088765979225840
 BoxCollider:
   m_ObjectHideFlags: 0
