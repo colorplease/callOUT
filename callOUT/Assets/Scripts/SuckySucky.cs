@@ -22,7 +22,9 @@ public class SuckySucky : MonoBehaviour
 
     [SerializeField]float maxSuckStrength;
     [Header("Other")]
+
     [SerializeField]Transform suckPoint;
+    bool playOff;
     [Header("Audio")]
     [SerializeField]AudioSource vac;
     [SerializeField]AudioClip fullVac;
@@ -50,6 +52,13 @@ public class SuckySucky : MonoBehaviour
             overheatTimer += Time.deltaTime;
             }
         }
+        else
+        {
+            if (overheatTimer >= 0)
+            {
+                overheatTimer -= Time.deltaTime;
+            }
+        }
         if (Input.GetKeyDown(suck))
         {
             //When Sucking, execute ONCE
@@ -59,23 +68,19 @@ public class SuckySucky : MonoBehaviour
             suckyAir.Play();
             }
         }
-        if (Input.GetKeyUp(suck) || !canSuck)
+        if (Input.GetKeyUp(suck))
         {
-            //When no longer sucking, execute
-            sucking = false;
-            suckStrength = 0;
-            vac.Stop();
-            suckyAir.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-                if (playingStartSuck == true)
+            if (canSuck)
             {
-                vac.PlayOneShot(stopVac);
-                playingStartSuck = false;
+                STOPSUCK();
             }
             
         }
         if (overheatTimer >= overheatTimerLimit)
         {
             canSuck = false;
+            STOPSUCK();
+            overheatTimer = 0;
         }
         if (!canSuck)
         {
@@ -86,13 +91,12 @@ public class SuckySucky : MonoBehaviour
             else
             {
                 canSuck = true;
-                overheatTimer = 0;
                 coolDownTimer = startingCoolDownTimer;
             }
-             if (!vac.isPlaying)
-        {
-            vac.PlayOneShot(stopVac);
-        }
+
+                 
+
+            
         }
     }
 
@@ -127,6 +131,20 @@ public class SuckySucky : MonoBehaviour
         }
         
         
+    }
+
+    void STOPSUCK()
+    {
+        //When no longer sucking, execute
+            sucking = false;
+            suckStrength = 0;
+            vac.Stop();
+            suckyAir.Stop(true, ParticleSystemStopBehavior.StopEmitting);
+                if (playingStartSuck == true)
+            {
+                vac.PlayOneShot(stopVac);
+                playingStartSuck = false;
+            }
     }
 
 }
