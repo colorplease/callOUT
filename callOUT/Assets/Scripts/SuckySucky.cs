@@ -31,41 +31,59 @@ public class SuckySucky : MonoBehaviour
     [SerializeField]AudioClip stopVac;
     [Header("VFX")]
     [SerializeField]ParticleSystem suckyAir;
+    [SerializeField]MeshRenderer vacuumTip;
+    [SerializeField]float heatValue = 1f;
+    [SerializeField]Color startingColor;
+    [SerializeField]Color endingColor;
 
     void Start()
     {
         //Define Vacuum Audio Source
         vac = GameObject.Find("Sucky").GetComponent<AudioSource>();
+        vacuumTip = GameObject.Find("Vacuum Tip").GetComponent<MeshRenderer>();
         coolDownTimer = startingCoolDownTimer;
+        startingColor = vacuumTip.material.color;
     }
     // Update is called once per frame
     void Update()
     {
+        HeatEffect();
         if (Input.GetKey(suck))
         {
             //When Sucking, execute
-            if (canSuck)
+            if (canSuck && sucking)
             {
-            sucking = true;
-            playingStartSuck = true;
             SUCK();
             overheatTimer += Time.deltaTime;
+            vacuumTip.material.color = Color.Lerp(vacuumTip.material.color, endingColor, 0.1f * Time.deltaTime);
+            if (heatValue > 0)
+            {
+                heatValue -= Time.deltaTime * 0.2f; 
+            }
             }
         }
         else
         {
-            if (overheatTimer >= 0)
+            if (overheatTimer > 0)
             {
                 overheatTimer -= Time.deltaTime;
             }
+            if (heatValue < 1)
+            {
+                heatValue += Time.deltaTime * 0.3f; 
+                vacuumTip.material.color = Color.Lerp(vacuumTip.material.color, startingColor, 0.5f * Time.deltaTime);
+            }
+
         }
         if (Input.GetKeyDown(suck))
         {
             //When Sucking, execute ONCE
             if (canSuck)
             {
+            sucking = true;
             vac.Stop();
             suckyAir.Play();
+            playingStartSuck = true;
             }
         }
         if (Input.GetKeyUp(suck))
@@ -145,6 +163,12 @@ public class SuckySucky : MonoBehaviour
                 vac.PlayOneShot(stopVac);
                 playingStartSuck = false;
             }
+    }
+
+    void HeatEffect()
+    {
+        vacuumTip.material.SetFloat("_Metallic", heatValue);
+        vacuumTip.material.SetFloat("_Glossiness", heatValue);   
     }
 
 }
