@@ -6,6 +6,13 @@ public class SuckySucky : MonoBehaviour
 {
     [Header("Suck Logic")]
     [SerializeField]bool sucking;
+    [SerializeField]bool canSuck = true;
+    [SerializeField]float startingPower;
+    public float remainingPower;
+    [SerializeField]float coolDownTimer;
+    [SerializeField]float startingCoolDownTimer;
+    [SerializeField]float overheatTimer;
+    [SerializeField]float overheatTimerLimit;
     bool playingStartSuck;
     [Header("Keybinds")]
     public KeyCode suck;
@@ -27,6 +34,7 @@ public class SuckySucky : MonoBehaviour
     {
         //Define Vacuum Audio Source
         vac = GameObject.Find("Sucky").GetComponent<AudioSource>();
+        coolDownTimer = startingCoolDownTimer;
     }
     // Update is called once per frame
     void Update()
@@ -34,28 +42,57 @@ public class SuckySucky : MonoBehaviour
         if (Input.GetKey(suck))
         {
             //When Sucking, execute
+            if (canSuck)
+            {
             sucking = true;
             playingStartSuck = true;
             SUCK();
+            overheatTimer += Time.deltaTime;
+            }
         }
         if (Input.GetKeyDown(suck))
         {
             //When Sucking, execute ONCE
+            if (canSuck)
+            {
             vac.Stop();
             suckyAir.Play();
+            }
         }
-        if (Input.GetKeyUp(suck))
+        if (Input.GetKeyUp(suck) || !canSuck)
         {
             //When no longer sucking, execute
             sucking = false;
             suckStrength = 0;
             vac.Stop();
             suckyAir.Stop(true, ParticleSystemStopBehavior.StopEmitting);
-            if (playingStartSuck == true)
+                if (playingStartSuck == true)
             {
                 vac.PlayOneShot(stopVac);
                 playingStartSuck = false;
             }
+            
+        }
+        if (overheatTimer >= overheatTimerLimit)
+        {
+            canSuck = false;
+        }
+        if (!canSuck)
+        {
+            if(coolDownTimer > 0)
+            {
+                coolDownTimer -= Time.deltaTime;
+            }
+            else
+            {
+                canSuck = true;
+                overheatTimer = 0;
+                coolDownTimer = startingCoolDownTimer;
+            }
+             if (!vac.isPlaying)
+        {
+            vac.PlayOneShot(stopVac);
+        }
         }
     }
 
