@@ -35,12 +35,14 @@ public class SuckySucky : MonoBehaviour
     [SerializeField]float heatValue = 1f;
     [SerializeField]Color startingColor;
     [SerializeField]Color endingColor;
+    Animator vacuum;
 
     void Start()
     {
         //Define Vacuum Audio Source
         vac = GameObject.Find("Sucky").GetComponent<AudioSource>();
         vacuumTip = GameObject.Find("Vacuum Tip").GetComponent<MeshRenderer>();
+        vacuum = GameObject.Find("Vacuum Tip").GetComponent<Animator>();
         coolDownTimer = startingCoolDownTimer;
         startingColor = vacuumTip.material.color;
     }
@@ -138,6 +140,7 @@ public class SuckySucky : MonoBehaviour
 
     void SUCK()
     {
+        vacuum.SetBool("suckysucker", true);
         if (suckStrength <= maxSuckStrength)
         {
             //suck strength
@@ -154,6 +157,7 @@ public class SuckySucky : MonoBehaviour
     void STOPSUCK()
     {
         //When no longer sucking, execute
+        vacuum.SetBool("suckysucker", false);
             sucking = false;
             suckStrength = 0;
             vac.Stop();
