@@ -35,6 +35,9 @@ public class SuckySucky : MonoBehaviour
     [SerializeField]float heatValue = 1f;
     [SerializeField]Color startingColor;
     [SerializeField]Color endingColor;
+
+    [SerializeField]Color startingColorEmission;
+    [SerializeField]Color endingColorEmission;
     Animator vacuum;
     [Header("Ghosts")]
     [SerializeField] GameObject ghostRagdoll;
@@ -66,6 +69,7 @@ public class SuckySucky : MonoBehaviour
             SUCK();
             overheatTimer += Time.deltaTime;
             vacuumTip.material.color = Color.Lerp(vacuumTip.material.color, endingColor, 0.1f * Time.deltaTime);
+            vacuumTip.material.SetColor("_EmissionColor", Color.Lerp(vacuumTip.material.GetColor("_EmissionColor"), endingColorEmission, 0.1f * Time.deltaTime));
             if (heatValue > 0)
             {
                 heatValue -= Time.deltaTime * 0.2f; 
@@ -82,6 +86,7 @@ public class SuckySucky : MonoBehaviour
             {
                 heatValue += Time.deltaTime * 0.3f; 
                 vacuumTip.material.color = Color.Lerp(vacuumTip.material.color, startingColor, 0.5f * Time.deltaTime);
+                vacuumTip.material.SetColor("_EmissionColor", Color.Lerp(vacuumTip.material.GetColor("_EmissionColor"), startingColorEmission, 2f * Time.deltaTime));
             }
 
         }
