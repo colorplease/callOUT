@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Suckable
+  - Ghost
+  - GhostDeath
   layers:
   - Default
   - TransparentFX

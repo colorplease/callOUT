@@ -36,6 +36,12 @@ public class SuckySucky : MonoBehaviour
     [SerializeField]Color startingColor;
     [SerializeField]Color endingColor;
     Animator vacuum;
+    [Header("Enemies")]
+    [SerializeField] GameObject ghostRagdoll;
+    [SerializeField] AudioClip ghostDeath;
+    [SerializeField] AudioClip ghostSucked;
+    [SerializeField] Vector3 ghostShrink;
+    [SerializeField] bool ghostsDying;
 
     void Start()
     {
@@ -132,9 +138,45 @@ public class SuckySucky : MonoBehaviour
                 movePos.y = Mathf.MoveTowards(other.transform.position.y, suckPoint.position.y, suckStrength * Time.deltaTime / other.attachedRigidbody.mass);
                 movePos.z = Mathf.MoveTowards(other.transform.position.z, suckPoint.position.z, suckStrength * Time.deltaTime / other.attachedRigidbody.mass);
                 other.attachedRigidbody.MovePosition(movePos);
-
-
             }  
+        }
+        if (other.tag == "Ghost")
+        {
+            if (sucking)
+            {
+                Instantiate(ghostRagdoll, other.transform.position, other.transform.rotation);
+                Destroy(other.gameObject);
+                vac.PlayOneShot(ghostDeath, 0.1f);
+            }
+        }
+        if (other.tag == "GhostDeath")
+        {
+             if (sucking)
+            {
+                ghostsDying = true;
+            }
+            if (ghostsDying)
+            {
+                if (other.gameObject.transform.localScale.x > 0)
+                {
+                ghostShrink -= new Vector3(1, 1, 1) * 0.01f;
+                other.gameObject.transform.localScale = Vector3.Lerp(other.gameObject.transform.localScale, ghostShrink, 0.05f);
+                Vector3 movePos = other.transform.position;
+                movePos.x = Mathf.MoveTowards(other.transform.position.x, suckPoint.position.x, suckStrength * 100);
+                movePos.y = Mathf.MoveTowards(other.transform.position.y, suckPoint.position.y, suckStrength * 100);
+                movePos.z = Mathf.MoveTowards(other.transform.position.z, suckPoint.position.z, suckStrength * 100);
+                other.attachedRigidbody.MovePosition(movePos);
+                }
+                else
+                {
+                    GameObject[] deadGhosts = GameObject.FindGameObjectsWithTag("GhostDeath");
+                    foreach(GameObject GhostDeath in deadGhosts)
+                    GameObject.Destroy(GhostDeath);
+                    vac.PlayOneShot(ghostSucked, 0.1f);
+                    ghostsDying = false;
+                }
+            }
+            
         }
     }
 
