@@ -5,6 +5,7 @@ using UnityEngine;
 public class GhostAI : MonoBehaviour
 {
     public Transform player;
+    public float HP = 100f;
     public float speed;
     // Start is called before the first frame update
     void Start()

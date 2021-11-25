@@ -36,12 +36,14 @@ public class SuckySucky : MonoBehaviour
     [SerializeField]Color startingColor;
     [SerializeField]Color endingColor;
     Animator vacuum;
-    [Header("Enemies")]
+    [Header("Ghosts")]
     [SerializeField] GameObject ghostRagdoll;
     [SerializeField] AudioClip ghostDeath;
     [SerializeField] AudioClip ghostSucked;
     [SerializeField] Vector3 ghostShrink;
     [SerializeField] bool ghostsDying;
+    [SerializeField] GhostAI ghostAI;
+    
 
     void Start()
     {
@@ -142,7 +144,12 @@ public class SuckySucky : MonoBehaviour
         }
         if (other.tag == "Ghost")
         {
+            ghostAI = other.gameObject.GetComponent<GhostAI>();
             if (sucking)
+            {
+                ghostAI.HP -= 60f * Time.deltaTime;
+            }
+            if (ghostAI.HP < 0)
             {
                 Instantiate(ghostRagdoll, other.transform.position, other.transform.rotation);
                 Destroy(other.gameObject);
