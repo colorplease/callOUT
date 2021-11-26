@@ -12369,8 +12369,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2054258166525893783}
-  m_LocalRotation: {x: -0.14214693, y: 0.00000011799881, z: 0.000000016945233, w: 0.98984563}
-  m_LocalPosition: {x: -0.006999885, y: -0.39679703, z: 0.3534665}
+  m_LocalRotation: {x: -0.1421469, y: 0.00000011799881, z: 0.00000001694523, w: 0.98984563}
+  m_LocalPosition: {x: -0.006999885, y: -0.39679635, z: 0.35346633}
   m_LocalScale: {x: 0.39892128, y: 0.34104583, z: 0.665696}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -14706,7 +14706,7 @@ GameObject:
   - component: {fileID: 7568682959760632623}
   - component: {fileID: 4605337273593524565}
   m_Layer: 0
-  m_Name: BaseMesh_Anim (1)
+  m_Name: Kazoo Man
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
