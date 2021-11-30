@@ -2552,6 +2552,7 @@ GameObject:
   - component: {fileID: 8552399008772161290}
   - component: {fileID: 8552399008772161288}
   - component: {fileID: 8552399008772161291}
+  - component: {fileID: 6710340714507388525}
   m_Layer: 0
   m_Name: Kazoo
   m_TagString: Untagged
@@ -2624,3 +2625,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6710340714507388525
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8552399008772161293}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8596127703964439936, guid: b24a2438f531ea8499c37128ecfe538d, type: 3}
