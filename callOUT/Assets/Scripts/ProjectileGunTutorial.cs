@@ -37,7 +37,7 @@ public class ProjectileGunTutorial : MonoBehaviour
     public Transform attackPoint;
 
     //Graphics
-    public GameObject muzzleFlash;
+    public ParticleSystem muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
     public Animator reload;
 
@@ -117,7 +117,7 @@ public class ProjectileGunTutorial : MonoBehaviour
 
         //Instantiate muzzle flash, if you have one
         if (muzzleFlash != null)
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+            muzzleFlash.Play();
 
         bulletsLeft--;
         bulletsShot++;
@@ -145,6 +145,7 @@ public class ProjectileGunTutorial : MonoBehaviour
 
     private void Reload()
     {
+        muzzleFlash.Stop();
         reloading = true;
         reload.SetBool("reload", true);
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
