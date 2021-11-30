@@ -3,7 +3,22 @@ guid: a89c5c6914ffded49940b6307e9717a7
 ModelImporter:
   serializedVersion: 21202
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Body
+    second: {fileID: 2100000, guid: dc14fc3258a0d4d41afcf492c9f294c9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Magazine
+    second: {fileID: 2100000, guid: e36b39e480c22144c8aa6e0647e662c4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Slide
+    second: {fileID: 2100000, guid: 6b0e1394c3b4bbe4299da91a692b3ce1, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
