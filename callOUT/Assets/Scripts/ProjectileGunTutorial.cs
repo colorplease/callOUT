@@ -40,6 +40,7 @@ public class ProjectileGunTutorial : MonoBehaviour
     public ParticleSystem muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
     public Animator reload;
+    public Animator crosshair;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -148,6 +149,7 @@ public class ProjectileGunTutorial : MonoBehaviour
         muzzleFlash.Stop();
         reloading = true;
         reload.SetBool("reload", true);
+        crosshair.SetBool("reloadme", true);
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
@@ -156,5 +158,6 @@ public class ProjectileGunTutorial : MonoBehaviour
         bulletsLeft = magazineSize;
         reloading = false;
         reload.SetBool("reload", false);
+        crosshair.SetBool("reloadme", false);
     }
 }
