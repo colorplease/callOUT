@@ -60,6 +60,7 @@ public class SuckySucky : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Application.targetFrameRate = 240;
         HeatEffect();
         if (Input.GetKey(suck))
         {
