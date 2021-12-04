@@ -13,6 +13,7 @@ public class ADS : MonoBehaviour
     [SerializeField]Vector3 propGunStart;
 
     [SerializeField]Transform gunTip;
+    [SerializeField]Animator cross;
     public float aimSpeed;
     public float aimSpeedFOV;
     public float restingFOV;
@@ -26,6 +27,7 @@ public class ADS : MonoBehaviour
             playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, aimFOV, Time.deltaTime * aimSpeedFOV);
             gunTip.localPosition = gunTipChange;
             propGun.localPosition = Vector3.Lerp(propGun.localPosition, propGunChange, Time.deltaTime * aimSpeed);
+            cross.SetBool("ADS", true);
         }
         else if (transform.position != restPosition.position)
         {
@@ -33,6 +35,7 @@ public class ADS : MonoBehaviour
             playerCam.fieldOfView = Mathf.Lerp(playerCam.fieldOfView, restingFOV, Time.deltaTime * aimSpeedFOV);
             gunTip.localPosition = gunTipStart;
             propGun.localPosition = Vector3.Lerp(propGun.localPosition, propGunStart, Time.deltaTime * aimSpeed);
+             cross.SetBool("ADS", false);
         }
     }
 }
