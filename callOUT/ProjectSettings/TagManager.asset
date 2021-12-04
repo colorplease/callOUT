@@ -8,6 +8,8 @@ TagManager:
   - Ghost
   - GhostDeath
   - Slope
+  - Kazoo
+  - KazooDeath
   layers:
   - Default
   - TransparentFX

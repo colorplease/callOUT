@@ -1,5 +1,92 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3652205003762849441
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1142144824093627738}
+  - component: {fileID: 4695696345588413736}
+  - component: {fileID: 5317394467634527870}
+  m_Layer: 0
+  m_Name: shades (1)
+  m_TagString: KazooDeath
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1142144824093627738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652205003762849441}
+  m_LocalRotation: {x: -0.55567336, y: 0.58269995, z: 0.43729526, w: 0.40057564}
+  m_LocalPosition: {x: -0.005, y: 0.251, z: 0.104}
+  m_LocalScale: {x: 0.49909997, y: 1.4554303, z: 0.3951949}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8552399006852129024}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: -72.708, y: 183.695, z: -90}
+--- !u!33 &4695696345588413736
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652205003762849441}
+  m_Mesh: {fileID: -1550514412580984892, guid: 529051bb6ba3b8841a7ba92b2e359cab, type: 3}
+--- !u!23 &5317394467634527870
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3652205003762849441}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: f622c6a1be54ec948bba7234ef16d8e8, type: 2}
+  - {fileID: 2100000, guid: f622c6a1be54ec948bba7234ef16d8e8, type: 2}
+  - {fileID: 2100000, guid: f622c6a1be54ec948bba7234ef16d8e8, type: 2}
+  - {fileID: 2100000, guid: f622c6a1be54ec948bba7234ef16d8e8, type: 2}
+  - {fileID: 2100000, guid: f622c6a1be54ec948bba7234ef16d8e8, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
 --- !u!1 &8552399006685678567
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +101,7 @@ GameObject:
   - component: {fileID: 8552399006685678562}
   m_Layer: 0
   m_Name: spine
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,7 +212,7 @@ GameObject:
   - component: {fileID: 8552399006797137671}
   m_Layer: 0
   m_Name: upper_arm.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -233,7 +320,7 @@ GameObject:
   - component: {fileID: 8552399006813583292}
   m_Layer: 0
   m_Name: f_middle.01.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -265,7 +352,7 @@ GameObject:
   - component: {fileID: 8552399006852129024}
   m_Layer: 0
   m_Name: neck
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -283,6 +370,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 8552399008242200844}
+  - {fileID: 1142144824093627738}
   m_Father: {fileID: 8552399008470541758}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -328,7 +416,7 @@ GameObject:
   - component: {fileID: 8552399006864799826}
   m_Layer: 0
   m_Name: f_ring.03.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -359,7 +447,7 @@ GameObject:
   - component: {fileID: 8552399006886608295}
   m_Layer: 0
   m_Name: f_pinky.02.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -391,7 +479,7 @@ GameObject:
   - component: {fileID: 8552399006906637808}
   m_Layer: 0
   m_Name: f_ring.02.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -423,7 +511,7 @@ GameObject:
   - component: {fileID: 8552399006946401808}
   m_Layer: 0
   m_Name: foot.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -458,7 +546,7 @@ GameObject:
   - component: {fileID: 8552399007042498932}
   m_Layer: 0
   m_Name: shin.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -566,7 +654,7 @@ GameObject:
   - component: {fileID: 8552399007060545977}
   m_Layer: 0
   m_Name: hand.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -602,7 +690,7 @@ GameObject:
   - component: {fileID: 8552399007122943661}
   m_Layer: 0
   m_Name: hand.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -638,7 +726,7 @@ GameObject:
   - component: {fileID: 8552399007268441674}
   m_Layer: 0
   m_Name: f_pinky.03.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -669,7 +757,7 @@ GameObject:
   - component: {fileID: 8552399007291310104}
   m_Layer: 0
   m_Name: toe.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -700,7 +788,7 @@ GameObject:
   - component: {fileID: 8552399007295217091}
   m_Layer: 0
   m_Name: Root
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -732,7 +820,7 @@ GameObject:
   - component: {fileID: 8552399007351339246}
   m_Layer: 0
   m_Name: f_middle.02.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -764,7 +852,7 @@ GameObject:
   - component: {fileID: 8552399007355746533}
   m_Layer: 0
   m_Name: thumb.02.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -796,7 +884,7 @@ GameObject:
   - component: {fileID: 8552399007356387739}
   m_Layer: 0
   m_Name: f_pinky.02.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -831,7 +919,7 @@ GameObject:
   - component: {fileID: 8552399007415447912}
   m_Layer: 0
   m_Name: upper_arm.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -939,7 +1027,7 @@ GameObject:
   - component: {fileID: 8552399007459977372}
   m_Layer: 0
   m_Name: f_index.01.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -971,7 +1059,7 @@ GameObject:
   - component: {fileID: 8552399007491192173}
   m_Layer: 0
   m_Name: thumb.03.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1002,7 +1090,7 @@ GameObject:
   - component: {fileID: 8552399007570083637}
   m_Layer: 0
   m_Name: f_ring.01.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1034,7 +1122,7 @@ GameObject:
   - component: {fileID: 8552399007603695234}
   m_Layer: 0
   m_Name: foot.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1066,7 +1154,7 @@ GameObject:
   - component: {fileID: 8552399007674915626}
   m_Layer: 0
   m_Name: thumb.03.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1099,7 +1187,7 @@ GameObject:
   - component: {fileID: 8552399007814103140}
   m_Layer: 0
   m_Name: hips
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1162,7 +1250,7 @@ GameObject:
   - component: {fileID: 8552399007912871461}
   m_Layer: 0
   m_Name: f_index.02.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1197,7 +1285,7 @@ GameObject:
   - component: {fileID: 8552399007938673955}
   m_Layer: 0
   m_Name: shin.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1305,7 +1393,7 @@ GameObject:
   - component: {fileID: 8552399007957873644}
   m_Layer: 0
   m_Name: f_middle.03.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1336,7 +1424,7 @@ GameObject:
   - component: {fileID: 8552399008059029217}
   m_Layer: 0
   m_Name: f_pinky.03.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1367,7 +1455,7 @@ GameObject:
   - component: {fileID: 8552399008065783779}
   m_Layer: 0
   m_Name: f_index.01.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1402,7 +1490,7 @@ GameObject:
   - component: {fileID: 8552399008109203815}
   m_Layer: 0
   m_Name: forearm.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1510,7 +1598,7 @@ GameObject:
   - component: {fileID: 8552399008124810108}
   m_Layer: 0
   m_Name: thumb.02.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1542,7 +1630,7 @@ GameObject:
   - component: {fileID: 8552399008161432481}
   m_Layer: 0
   m_Name: toe.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1576,7 +1664,7 @@ GameObject:
   - component: {fileID: 8552399008242200845}
   m_Layer: 0
   m_Name: head
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1685,7 +1773,7 @@ GameObject:
   - component: {fileID: 8552399008341059269}
   m_Layer: 0
   m_Name: thigh.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1796,7 +1884,7 @@ GameObject:
   - component: {fileID: 8552399008342837461}
   m_Layer: 0
   m_Name: thigh.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1904,7 +1992,7 @@ GameObject:
   - component: {fileID: 8552399008374170292}
   m_Layer: 0
   m_Name: f_index.03.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1935,7 +2023,7 @@ GameObject:
   - component: {fileID: 8552399008375964818}
   m_Layer: 0
   m_Name: f_middle.03.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1966,7 +2054,7 @@ GameObject:
   - component: {fileID: 8552399008400385708}
   m_Layer: 0
   m_Name: f_ring.02.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1998,7 +2086,7 @@ GameObject:
   - component: {fileID: 8552399008417457133}
   m_Layer: 0
   m_Name: f_pinky.01.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2030,7 +2118,7 @@ GameObject:
   - component: {fileID: 8552399008433311239}
   m_Layer: 0
   m_Name: f_ring.03.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2061,7 +2149,7 @@ GameObject:
   - component: {fileID: 8552399008470541758}
   m_Layer: 0
   m_Name: chest
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2095,7 +2183,7 @@ GameObject:
   - component: {fileID: 8552399008475709046}
   m_Layer: 0
   m_Name: f_index.02.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2128,7 +2216,7 @@ GameObject:
   - component: {fileID: 8552399008511558896}
   m_Layer: 0
   m_Name: Human_BaseMesh
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2262,7 +2350,7 @@ GameObject:
   - component: {fileID: 8552399008524182900}
   m_Layer: 0
   m_Name: forearm.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2370,7 +2458,7 @@ GameObject:
   - component: {fileID: 8552399008658921040}
   m_Layer: 0
   m_Name: f_middle.01.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2403,7 +2491,7 @@ GameObject:
   - component: {fileID: 8552399008669051302}
   m_Layer: 0
   m_Name: Kazoo Man Ragdoll
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2456,7 +2544,7 @@ GameObject:
   - component: {fileID: 8552399008681078386}
   m_Layer: 0
   m_Name: f_middle.02.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2488,7 +2576,7 @@ GameObject:
   - component: {fileID: 8552399008721650580}
   m_Layer: 0
   m_Name: f_pinky.01.L
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2520,7 +2608,7 @@ GameObject:
   - component: {fileID: 8552399008723679407}
   m_Layer: 0
   m_Name: f_ring.01.R
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2555,7 +2643,7 @@ GameObject:
   - component: {fileID: 6710340714507388525}
   m_Layer: 0
   m_Name: Kazoo
-  m_TagString: Untagged
+  m_TagString: KazooDeath
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
