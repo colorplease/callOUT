@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class MoveCamera : MonoBehaviour {
 
-    [SerializeField] private float sensX;
-    [SerializeField] private float sensY;
+     public float sensX;
+     public float sensY;
 
     Camera cam;
 

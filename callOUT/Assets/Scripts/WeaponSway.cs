@@ -5,8 +5,8 @@ using UnityEngine;
 public class WeaponSway : MonoBehaviour
 {
     [Header("Sway Settings")]
-    [SerializeField] float smooth;
-    [SerializeField] float swayMultiplier;
+    public float smooth;
+    public float swayMultiplier;
     void Update()
     {
         //get mouse input

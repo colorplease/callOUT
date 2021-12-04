@@ -26,7 +26,6 @@ public class ProjectileGunTutorial : MonoBehaviour
     int bulletsLeft, bulletsShot;
 
     //Recoil
-    public Rigidbody playerRb;
     public float recoilForce;
 
     //bools
@@ -45,17 +44,26 @@ public class ProjectileGunTutorial : MonoBehaviour
     //bug fixing :D
     public bool allowInvoke = true;
 
+    //crouch fix
+    public PlayerMovement player;
+    [SerializeField]Vector3 startScale;
+    [SerializeField]Vector3 backScale;
+
     private void Awake()
     {
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        startScale.x = transform.localScale.x;
+        startScale.y = transform.localScale.y * 2;
+        startScale.z = transform.localScale.z;
+        backScale = transform.localScale;
     }
 
     private void Update()
     {
         MyInput();
-
+        CrouchFix();
         //Set ammo display, if it exists :D
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
@@ -128,9 +136,6 @@ public class ProjectileGunTutorial : MonoBehaviour
         {
             Invoke("ResetShot", timeBetweenShooting);
             allowInvoke = false;
-
-            //Add recoil to player (should only be called once)
-            playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function
@@ -159,5 +164,17 @@ public class ProjectileGunTutorial : MonoBehaviour
         reloading = false;
         reload.SetBool("reload", false);
         crosshair.SetBool("reloadme", false);
+    }
+
+    void CrouchFix()
+    {
+        if (player.crouching)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, startScale, Time.deltaTime * player.crouchSpeed);
+        }
+        else
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, backScale, Time.deltaTime * player.crouchSpeed);
+        }
     }
 }

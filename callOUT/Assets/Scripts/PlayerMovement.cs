@@ -11,11 +11,12 @@ public class PlayerMovement : MonoBehaviour {
     private Rigidbody rb;
     [Header("Rotation and Look")]
     private float xRotation;
-    private float sensitivity = 50f;
+    public float sensitivityX;
+    public float sensitivityY;
     private float sensMultiplier = 1f;
     [Header("Movement")]
-    public float moveSpeed = 4500;
-    public float maxSpeed = 20;
+    public float moveSpeed;
+    public float maxSpeed;
     public bool grounded;
     public LayerMask whatIsGround;
     
@@ -26,6 +27,7 @@ public class PlayerMovement : MonoBehaviour {
     private Vector3 crouchScale = new Vector3(1, 0.5f, 1);
     private Vector3 playerScale;
     public float slideForce = 400;
+    public float crouchSpeed;
     public float slideCounterMovement = 0.2f;
     [Header("Jumping")]
     private bool readyToJump = true;
@@ -33,7 +35,7 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce = 550f;
     [Header("Input")]
     float x, y;
-    bool jumping, sprinting, crouching;
+    public bool jumping, sprinting, crouching;
     public KeyCode crouch;
     [Header("Sliding")]
     private Vector3 normalVector = Vector3.up;
@@ -57,6 +59,14 @@ public class PlayerMovement : MonoBehaviour {
     private void Update() {
         MyInput();
         Look();
+        if (crouching)
+        {
+        transform.localScale = Vector3.Lerp(transform.localScale, crouchScale, Time.deltaTime * crouchSpeed);
+        }
+        else
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, playerScale, Time.deltaTime * crouchSpeed);
+        }
     }
 
     /// <summary>
@@ -71,23 +81,14 @@ public class PlayerMovement : MonoBehaviour {
         //Crouching
         if (Input.GetKeyDown(crouch))
             StartCrouch();
-        if (Input.GetKeyUp(crouch))
-            StopCrouch();
     }
 
     private void StartCrouch() {
-        transform.localScale = crouchScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y - 0.5f, transform.position.z);
         if (rb.velocity.magnitude > 0.5f) {
             if (grounded) {
                 rb.AddForce(orientation.transform.forward * slideForce);
             }
         }
-    }
-
-    private void StopCrouch() {
-        transform.localScale = playerScale;
-        transform.position = new Vector3(transform.position.x, transform.position.y + 0.5f, transform.position.z);
     }
 
     private void Movement() {
@@ -161,8 +162,8 @@ public class PlayerMovement : MonoBehaviour {
     
     private float desiredX;
     private void Look() {
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
-        float mouseY = Input.GetAxis("Mouse Y") * sensitivity * Time.fixedDeltaTime * sensMultiplier;
+        float mouseX = Input.GetAxis("Mouse X") * sensitivityX * Time.fixedDeltaTime * sensMultiplier;
+        float mouseY = Input.GetAxis("Mouse Y") * sensitivityY * Time.fixedDeltaTime * sensMultiplier;
 
         //Find current look rotation
         Vector3 rot = playerCam.transform.localRotation.eulerAngles;
