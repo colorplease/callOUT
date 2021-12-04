@@ -8,11 +8,14 @@ public class Bullet : MonoBehaviour
     [SerializeField]GameObject impactParticle;
     void OnCollisionEnter(Collision other)
     {
+        if (other.gameObject.tag != "Player")
+        {
         lastBulletImpact = transform.position;
         impactParticle.GetComponent<ParticleSystemRenderer>().material = other.gameObject.GetComponent<Renderer>().material; 
         GameObject deez = Instantiate(impactParticle, lastBulletImpact, transform.rotation);
         deez.transform.Rotate(0f, 180f, 0f);
         Destroy(gameObject);
+        }
     }
 
     void Awake()
