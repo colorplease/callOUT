@@ -24,8 +24,6 @@ public class Reticle : MonoBehaviour
                currentSize = Mathf.Lerp(currentSize, restingSize, Time.deltaTime * speedReturn);
            }
         reticle.sizeDelta = new Vector2(currentSize, currentSize);
-
-        print(player.velocity.sqrMagnitude);
     }
 
     bool isMoving

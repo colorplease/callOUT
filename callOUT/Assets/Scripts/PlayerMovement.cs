@@ -224,6 +224,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool IsFloor(Vector3 v) {
         float angle = Vector3.Angle(Vector3.up, v);
         return angle < maxSlopeAngle;
+        
     }
 
     private bool cancellingGrounded;
@@ -254,10 +255,12 @@ public class PlayerMovement : MonoBehaviour {
             cancellingGrounded = true;
             Invoke(nameof(StopGrounded), Time.deltaTime * delay);
         }
+
     }
 
     private void StopGrounded() {
         grounded = false;
     }
+
     
 }

@@ -7,6 +7,7 @@ TagManager:
   - Suckable
   - Ghost
   - GhostDeath
+  - Slope
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Invisible
   - Ghost
   - Weapon2
-  - PropGun
+  - Slope
   - 
   - 
   - 
