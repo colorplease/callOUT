@@ -29,7 +29,7 @@ public class ProjectileGunTutorial : MonoBehaviour
     public float recoilForce;
 
     //bools
-    bool shooting, readyToShoot, reloading;
+    public bool shooting, readyToShoot, reloading;
 
     //Reference
     public Camera fpsCam;
@@ -49,6 +49,9 @@ public class ProjectileGunTutorial : MonoBehaviour
     public PlayerMovement player;
     [SerializeField]Vector3 startScale;
     [SerializeField]Vector3 backScale;
+    [SerializeField]CameraRecoil cameraRecoil;
+    [SerializeField]ADS ads;
+    [SerializeField]WeaponRecoil recoil;
 
     private void Awake()
     {
@@ -65,14 +68,6 @@ public class ProjectileGunTutorial : MonoBehaviour
     {
         MyInput();
         CrouchFix();
-        if (Input.GetMouseButtonDown(0))
-        {
-            icon.SetBool("fireme", true);
-        }
-        if (Input.GetMouseButtonUp(0))
-        {
-            icon.SetBool("fireme", false);
-        }
         //Set ammo display, if it exists :D
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
@@ -94,7 +89,6 @@ public class ProjectileGunTutorial : MonoBehaviour
         {
             //Set bullets shot to 0
             bulletsShot = 0;
-
             Shoot();
         }
     }
@@ -102,7 +96,16 @@ public class ProjectileGunTutorial : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-
+        icon.SetBool("fireme", true);
+        if (ads.aiming)
+        {
+            cameraRecoil.AimingFire();
+        }
+        else
+        {
+            cameraRecoil.RecoilFire();
+        }
+        recoil.Fire();
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
         RaycastHit hit;
@@ -156,6 +159,7 @@ public class ProjectileGunTutorial : MonoBehaviour
         //Allow shooting and invoking again
         readyToShoot = true;
         allowInvoke = true;
+        icon.SetBool("fireme", false);
     }
 
     private void Reload()
