@@ -40,6 +40,7 @@ public class ProjectileGunTutorial : MonoBehaviour
     public TextMeshProUGUI ammunitionDisplay;
     public Animator reload;
     public Animator crosshair;
+    public Animator icon;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -64,6 +65,14 @@ public class ProjectileGunTutorial : MonoBehaviour
     {
         MyInput();
         CrouchFix();
+        if (Input.GetMouseButtonDown(0))
+        {
+            icon.SetBool("fireme", true);
+        }
+        if (Input.GetMouseButtonUp(0))
+        {
+            icon.SetBool("fireme", false);
+        }
         //Set ammo display, if it exists :D
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
@@ -155,6 +164,7 @@ public class ProjectileGunTutorial : MonoBehaviour
         reloading = true;
         reload.SetBool("reload", true);
         crosshair.SetBool("reloadme", true);
+        icon.SetBool("loadre", true);
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
@@ -164,6 +174,7 @@ public class ProjectileGunTutorial : MonoBehaviour
         reloading = false;
         reload.SetBool("reload", false);
         crosshair.SetBool("reloadme", false);
+        icon.SetBool("loadre", false);
     }
 
     void CrouchFix()

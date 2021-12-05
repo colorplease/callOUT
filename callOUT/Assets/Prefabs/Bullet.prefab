@@ -164,6 +164,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   impactParticle: {fileID: 6372468909237849427, guid: 44c8376b84f9a814f8f92f9002d68510,
     type: 3}
+  bloodParticle: {fileID: 3404574554074911463, guid: 7f52132e58de6ec45adab1846f4e0e03,
+    type: 3}
 --- !u!1 &3586560256127759796
 GameObject:
   m_ObjectHideFlags: 0
