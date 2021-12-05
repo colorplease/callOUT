@@ -166,7 +166,7 @@ MonoBehaviour:
     type: 3}
   bloodParticle: {fileID: 3404574554074911463, guid: 7f52132e58de6ec45adab1846f4e0e03,
     type: 3}
-  damage: 100
+  damage: 10
 --- !u!1 &3586560256127759796
 GameObject:
   m_ObjectHideFlags: 0
