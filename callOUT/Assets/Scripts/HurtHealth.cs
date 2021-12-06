@@ -26,6 +26,16 @@ public class HurtHealth : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter(Collider other)
+    {
+         if (other.tag == scaredOf.tag && !isGunMan)
+        {
+            //cp drama/biopic/ray.txt drama/biopic/notorious.txt drama/historical/ come fucking on kyle
+            hit = true;
+
+        }
+    }
+
     void Update()
     {
         if (hit && invincibilityFramesTimer > 0 && health > 0)
