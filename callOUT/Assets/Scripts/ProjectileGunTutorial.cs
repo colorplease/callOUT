@@ -53,6 +53,11 @@ public class ProjectileGunTutorial : MonoBehaviour
     [SerializeField]ADS ads;
     [SerializeField]WeaponRecoil recoil;
 
+    //Sound
+    [SerializeField] AudioClip shoot;
+    [SerializeField] AudioClip reloadClick;
+    [SerializeField] AudioSource gun;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -97,6 +102,7 @@ public class ProjectileGunTutorial : MonoBehaviour
     {
         readyToShoot = false;
         icon.SetBool("fireme", true);
+        gun.PlayOneShot(shoot, 0.5f);
         if (ads.aiming)
         {
             cameraRecoil.AimingFire();
@@ -169,6 +175,7 @@ public class ProjectileGunTutorial : MonoBehaviour
         reload.SetBool("reload", true);
         crosshair.SetBool("reloadme", true);
         icon.SetBool("loadre", true);
+        gun.PlayOneShot(reloadClick, 0.5f);
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
