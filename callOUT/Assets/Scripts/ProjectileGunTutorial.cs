@@ -102,6 +102,7 @@ public class ProjectileGunTutorial : MonoBehaviour
     {
         readyToShoot = false;
         icon.SetBool("fireme", true);
+        gun.pitch = Random.Range(0.8f, 1.2f);
         gun.PlayOneShot(shoot, 0.5f);
         if (ads.aiming)
         {
@@ -176,6 +177,7 @@ public class ProjectileGunTutorial : MonoBehaviour
         crosshair.SetBool("reloadme", true);
         icon.SetBool("loadre", true);
         gun.PlayOneShot(reloadClick, 0.5f);
+        gun.pitch = Random.Range(0.8f, 1.2f);
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
