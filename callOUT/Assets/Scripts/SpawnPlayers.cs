@@ -10,8 +10,8 @@ public class SpawnPlayers : MonoBehaviour
    
    void Start()
    {
-       Transform spawnPoint = spawns[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerCharacter"]];
-       GameObject playerToSpawn = players[(int)PhotonNetwork.LocalPlayer.CustomProperties["playerCharacter"]];
+       Transform spawnPoint = spawns[PlayerPrefs.GetInt("playerCharacter")];
+       GameObject playerToSpawn = players[PlayerPrefs.GetInt("playerCharacter")];
        PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
    }
 }
