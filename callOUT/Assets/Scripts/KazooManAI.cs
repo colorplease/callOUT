@@ -25,6 +25,7 @@ public class KazooManAI : MonoBehaviour
             Instantiate(ragDoll, transform.position, transform.rotation);
             Destroy(gameObject);
         }
+        target = GameObject.Find("Gun Man(Clone)").transform;
     }
 
     void OnTriggerEnter(Collider other)

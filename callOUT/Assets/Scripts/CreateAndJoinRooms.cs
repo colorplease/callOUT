@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Photon.Pun;
+using Photon.Realtime;
 using TMPro;
 
 public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
@@ -12,16 +13,22 @@ public class CreateAndJoinRooms : MonoBehaviourPunCallbacks
 
    public void CreateRoom()
    {
-       PhotonNetwork.CreateRoom(createInput.text);
+       if(createInput.text.Length >= 1)
+       {
+           PhotonNetwork.CreateRoom(createInput.text, new RoomOptions(){MaxPlayers = 3});
+       }
    }
 
    public void JoinRoom()
    {
-       PhotonNetwork.JoinRoom(joinInput.text);
+       if(joinInput.text.Length >= 1)
+       {
+           PhotonNetwork.JoinRoom(joinInput.text);
+       }
    }
 
-   public override void OnJoinedLobby()
+   public override void OnJoinedRoom()
    {
-       PhotonNetwork.LoadLevel("TESTING");
+       PhotonNetwork.LoadLevel("PlayerSelect");
    }
 }
