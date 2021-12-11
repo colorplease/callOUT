@@ -11,6 +11,9 @@ TagManager:
   - Kazoo
   - KazooDeath
   - bullet
+  - Bullet
+  - Player 2
+  - WpnEyes
   layers:
   - Default
   - TransparentFX
@@ -25,7 +28,7 @@ TagManager:
   - Slope
   - PropGun
   - UI 2
-  - 
+  - Invisible 2
   - 
   - 
   - 

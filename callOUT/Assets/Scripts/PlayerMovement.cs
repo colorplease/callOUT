@@ -1,7 +1,7 @@
 // Some stupid rigidbody based movement by Dani
-
 using System;
 using UnityEngine;
+using Photon.Pun;
 
 public class PlayerMovement : MonoBehaviour {
     [Header("Assingables")]
@@ -40,23 +40,41 @@ public class PlayerMovement : MonoBehaviour {
     [Header("Sliding")]
     private Vector3 normalVector = Vector3.up;
     private Vector3 wallNormalVector;
+    [Header("MP")]
+    public PhotonView view;
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        if(!view.IsMine)
+        {
+            if (!view.IsMine && GameObject.FindGameObjectWithTag("WpnEyes") != null && GameObject.FindGameObjectWithTag("MainCamera") != null && GetComponent<PlayerMovement>())
+            {
+            GameObject.FindGameObjectWithTag("WpnEyes").SetActive(false);
+            GameObject.FindGameObjectWithTag("MainCamera").SetActive(false);
+            GetComponent<PlayerMovement>().enabled = false;
+            }
+        }
     }
     
     void Start() {
         playerScale =  transform.localScale;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+        view = GetComponent<PhotonView>();
+        
     }
 
     
     private void FixedUpdate() {
-        Movement();
+        if (view.IsMine)
+        {
+            Movement();
+        }
     }
 
     private void Update() {
+        if (view.IsMine)
+        {
         MyInput();
         Look();
         if (crouching)
@@ -67,12 +85,15 @@ public class PlayerMovement : MonoBehaviour {
         {
             transform.localScale = Vector3.Lerp(transform.localScale, playerScale, Time.deltaTime * crouchSpeed);
         }
+        }
     }
 
     /// <summary>
     /// Find user input. Should put this in its own class but im lazy
     /// </summary>
     private void MyInput() {
+        if (view.IsMine)
+        {
         x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         jumping = Input.GetButton("Jump");
@@ -80,18 +101,35 @@ public class PlayerMovement : MonoBehaviour {
       
         //Crouching
         if (Input.GetKeyDown(crouch))
+        {
             StartCrouch();
+        }
+        if (Input.GetKey(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        }
+       
     }
 
     private void StartCrouch() {
+         if (view.IsMine)
+        {
         if (rb.velocity.magnitude > 0.5f) {
             if (grounded) {
                 rb.AddForce(orientation.transform.forward * slideForce);
             }
         }
+        }
     }
 
     private void Movement() {
+         if (view.IsMine)
+        {
         //Extra gravity
         rb.AddForce(Vector3.down * Time.deltaTime * 10);
         
@@ -135,9 +173,12 @@ public class PlayerMovement : MonoBehaviour {
         //Apply forces to move player
         rb.AddForce(orientation.transform.forward * y * moveSpeed * Time.deltaTime * multiplier * multiplierV);
         rb.AddForce(orientation.transform.right * x * moveSpeed * Time.deltaTime * multiplier);
+        }
     }
 
     private void Jump() {
+         if (view.IsMine)
+        {
         if (grounded && readyToJump) {
             readyToJump = false;
 
@@ -154,14 +195,20 @@ public class PlayerMovement : MonoBehaviour {
             
             Invoke(nameof(ResetJump), jumpCooldown);
         }
+        }
     }
     
     private void ResetJump() {
+         if (view.IsMine)
+        {
         readyToJump = true;
+        }
     }
     
     private float desiredX;
     private void Look() {
+         if (view.IsMine)
+        {
         float mouseX = Input.GetAxis("Mouse X") * sensitivityX * Time.fixedDeltaTime * sensMultiplier;
         float mouseY = Input.GetAxis("Mouse Y") * sensitivityY * Time.fixedDeltaTime * sensMultiplier;
 
@@ -176,9 +223,12 @@ public class PlayerMovement : MonoBehaviour {
         //Perform the rotations
         playerCam.transform.localRotation = Quaternion.Euler(xRotation, desiredX, 0);
         orientation.transform.localRotation = Quaternion.Euler(0, desiredX, 0);
+        }
     }
 
     private void CounterMovement(float x, float y, Vector2 mag) {
+         if (view.IsMine)
+        {
         if (!grounded || jumping) return;
 
         //Slow down sliding
@@ -200,6 +250,7 @@ public class PlayerMovement : MonoBehaviour {
             float fallspeed = rb.velocity.y;
             Vector3 n = rb.velocity.normalized * maxSpeed;
             rb.velocity = new Vector3(n.x, fallspeed, n.z);
+        }
         }
     }
 
@@ -234,6 +285,8 @@ public class PlayerMovement : MonoBehaviour {
     /// Handle ground detection
     /// </summary>
     private void OnCollisionStay(Collision other) {
+         if (view.IsMine)
+        {
         //Make sure we are only checking for walkable layers
         int layer = other.gameObject.layer;
         if (whatIsGround != (whatIsGround | (1 << layer))) return;
@@ -256,11 +309,15 @@ public class PlayerMovement : MonoBehaviour {
             cancellingGrounded = true;
             Invoke(nameof(StopGrounded), Time.deltaTime * delay);
         }
+        }
 
     }
 
     private void StopGrounded() {
+         if (view.IsMine)
+        {
         grounded = false;
+        }
     }
 
     

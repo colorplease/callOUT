@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class SuckySucky : MonoBehaviour
 {
@@ -46,6 +47,8 @@ public class SuckySucky : MonoBehaviour
     [SerializeField] Vector3 ghostShrink;
     [SerializeField] bool ghostsDying;
     [SerializeField] GhostAI ghostAI;
+
+    PhotonView view;
     
 
     void Start()
@@ -56,11 +59,13 @@ public class SuckySucky : MonoBehaviour
         vacuum = GameObject.Find("Vacuum Tip").GetComponent<Animator>();
         coolDownTimer = startingCoolDownTimer;
         startingColor = vacuumTip.material.color;
+        view = GetComponentInParent<PhotonView>();
     }
     // Update is called once per frame
     void Update()
     {
-        Application.targetFrameRate = 240;
+        if (view.IsMine)
+        {
         HeatEffect();
         if (Input.GetKey(suck))
         {
@@ -132,10 +137,13 @@ public class SuckySucky : MonoBehaviour
 
             
         }
+        }
     }
 
     void OnTriggerStay(Collider other)
     {
+        if (view.IsMine)
+        {
         if (other.tag == "Suckable")
         {
             if (sucking)
@@ -191,6 +199,7 @@ public class SuckySucky : MonoBehaviour
             }
             
         }
+    }
     }
 
     void SUCK()
