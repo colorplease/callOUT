@@ -7,7 +7,6 @@ using TMPro;
 
 public class CharacterSelect : MonoBehaviour
 {
-    public TMP_Text text;
 
     public void SelectedVacuum()
     {
@@ -23,7 +22,6 @@ public class CharacterSelect : MonoBehaviour
     {
          if (PhotonNetwork.PlayerList.Length == 2)
         {
-            PhotonNetwork.AutomaticallySyncScene = true;
             PhotonNetwork.LoadLevel("TESTING");
             
         }

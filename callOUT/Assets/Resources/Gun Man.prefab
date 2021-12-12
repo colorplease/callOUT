@@ -7020,6 +7020,7 @@ MonoBehaviour:
   invincibilityFrames: 1
   invincibilityFramesTimer: 0
   hit: 0
+  view: {fileID: 0}
 --- !u!114 &126983829782856726
 MonoBehaviour:
   m_ObjectHideFlags: 0

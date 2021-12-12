@@ -45,6 +45,10 @@ public class PlayerMovement : MonoBehaviour {
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        if (!view.IsMine && GetComponent<PlayerMovement>() != null)
+        {
+            Destroy(GetComponent<PlayerMovement>());
+        }
     }
     
     void Start() {
@@ -56,10 +60,15 @@ public class PlayerMovement : MonoBehaviour {
 
     
     private void FixedUpdate() {
+        if (view.IsMine)
+        {
             Movement();
+        }
     }
 
     private void Update() {
+        if (view.IsMine)
+        {
         MyInput();
         Look();
         if (crouching)
@@ -69,6 +78,7 @@ public class PlayerMovement : MonoBehaviour {
         else
         {
             transform.localScale = Vector3.Lerp(transform.localScale, playerScale, Time.deltaTime * crouchSpeed);
+        }
         }
     }
 

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class HurtHealth : MonoBehaviour
 {
@@ -11,33 +12,43 @@ public class HurtHealth : MonoBehaviour
     [SerializeField]float invincibilityFrames;
     [SerializeField]float invincibilityFramesTimer;
     [SerializeField]bool hit;
+    public PhotonView view;
 
     void Start()
     {
         invincibilityFramesTimer = invincibilityFrames;
+        view = GetComponent<PhotonView>();
     }
     void OnCollisionEnter(Collision other)
     {
+        if (view.IsMine)
+        {
         if (other.gameObject.tag == scaredOf.tag)
         {
             //cp drama/biopic/ray.txt drama/biopic/notorious.txt drama/historical/ come fucking on kyle
             hit = true;
 
         }
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
+        if (view.IsMine)
+        {
          if (other.tag == scaredOf.tag && !isGunMan)
         {
             //cp drama/biopic/ray.txt drama/biopic/notorious.txt drama/historical/ come fucking on kyle
             hit = true;
 
         }
+        }
     }
 
     void Update()
     {
+        if (view.IsMine)
+        {
         if (hit && invincibilityFramesTimer > 0 && health > 0)
         {
             invincibilityFramesTimer -= Time.fixedDeltaTime;
@@ -56,6 +67,7 @@ public class HurtHealth : MonoBehaviour
             gameObject.GetComponentInChildren<WeaponSway>().enabled = false;
             gameObject.GetComponentInChildren<ADS>().enabled = false;
             gameObject.GetComponentInChildren<ProjectileGunTutorial>().enabled = false;
+        }
         }
     }
 }
