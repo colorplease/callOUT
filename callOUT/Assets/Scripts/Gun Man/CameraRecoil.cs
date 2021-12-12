@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Photon.Pun;
 
 public class CameraRecoil : MonoBehaviour
 {
@@ -21,21 +22,36 @@ public class CameraRecoil : MonoBehaviour
     [Header("Settings")]
     [SerializeField]float snappiness;
     [SerializeField]float returnSpeed;
+    PhotonView view;
+
+    void Start()
+    {
+        view = GetComponentInParent<PhotonView>();
+    }
     void Update()
     {
+        if (view.IsMine)
+        {
         targetRotation = Vector3.Lerp(targetRotation, Vector3.zero, returnSpeed * Time.deltaTime);
         currentRotation = Vector3.Slerp(currentRotation, targetRotation, snappiness * Time.fixedDeltaTime);
         transform.localRotation = Quaternion.Euler(currentRotation);
+        }
     }
 
     public void RecoilFire()
     {
+        if (view.IsMine)
+        {
             targetRotation += new Vector3(recoilX, Random.Range(-recoilY, recoilY), Random.Range(-recoilZ, recoilZ));
+        }
     }
 
     public void AimingFire()
     {
+        if (view.IsMine)
+        {
          targetRotation += new Vector3(aimingRecoilX, Random.Range(-aimingRecoilY, aimingRecoilY), Random.Range(-aimingRecoilZ, aimingRecoilZ));
+        }
     }
 
     

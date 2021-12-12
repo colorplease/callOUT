@@ -12,6 +12,7 @@ TagManager:
   - KazooDeath
   - bullet
   - Bullet
+  - Player 2
   layers:
   - Default
   - TransparentFX

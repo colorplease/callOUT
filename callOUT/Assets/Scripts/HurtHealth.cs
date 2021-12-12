@@ -14,10 +14,10 @@ public class HurtHealth : MonoBehaviour
     [SerializeField]bool hit;
     public PhotonView view;
 
-    void Start()
+    void Awake()
     {
         invincibilityFramesTimer = invincibilityFrames;
-        view = GetComponent<PhotonView>();
+        view = GetComponentInParent<PhotonView>();
     }
     void OnCollisionEnter(Collision other)
     {

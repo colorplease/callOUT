@@ -15,6 +15,7 @@ public class Reticle : MonoBehaviour
     // Start is called before the first frame update
     void Update()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody>();
        if (isMoving)
        {
            currentSize = Mathf.Lerp(currentSize, maxSize, Time.deltaTime * player.velocity.sqrMagnitude * speedReturnMultiplier);

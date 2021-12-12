@@ -45,10 +45,6 @@ public class PlayerMovement : MonoBehaviour {
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
-        if (!view.IsMine && GetComponent<PlayerMovement>() != null)
-        {
-            Destroy(GetComponent<PlayerMovement>());
-        }
     }
     
     void Start() {
@@ -88,14 +84,20 @@ public class PlayerMovement : MonoBehaviour {
     private void MyInput() {
         if (view.IsMine)
         {
-             x = Input.GetAxisRaw("Horizontal");
+        x = Input.GetAxisRaw("Horizontal");
         y = Input.GetAxisRaw("Vertical");
         jumping = Input.GetButton("Jump");
         crouching = Input.GetKey(crouch);
       
         //Crouching
         if (Input.GetKeyDown(crouch))
+        {
             StartCrouch();
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
         }
        
     }

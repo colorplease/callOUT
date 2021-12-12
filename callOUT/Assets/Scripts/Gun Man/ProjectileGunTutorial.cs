@@ -1,6 +1,6 @@
-﻿
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
+using Photon.Pun;
 
 /// Thanks for downloading my projectile gun script! :D
 /// Feel free to use it in any project you like!
@@ -58,6 +58,9 @@ public class ProjectileGunTutorial : MonoBehaviour
     [SerializeField] AudioClip reloadClick;
     [SerializeField] AudioSource gun;
 
+    //MP
+    PhotonView view;
+
     private void Awake()
     {
         //make sure magazine is full
@@ -67,15 +70,21 @@ public class ProjectileGunTutorial : MonoBehaviour
         startScale.y = transform.localScale.y * 2;
         startScale.z = transform.localScale.z;
         backScale = transform.localScale;
+        view = GetComponentInParent<PhotonView>();
+        icon = GameObject.Find("Icon").GetComponent<Animator>();
+        crosshair = GameObject.Find("Crosshair").GetComponent<Animator>();
     }
 
     private void Update()
     {
+        if (view.IsMine)
+        {
         MyInput();
         CrouchFix();
         //Set ammo display, if it exists :D
         if (ammunitionDisplay != null)
             ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+    }
     }
     private void MyInput()
     {
