@@ -5,13 +5,13 @@ using Photon.Pun;
 
 public class SpawnPlayers : MonoBehaviour
 {
-   public GameObject[] players;
+   public GameObject player;
    public Transform[] spawns;
    
    void Start()
    {
-       Transform spawnPoint = spawns[PlayerPrefs.GetInt("playerCharacter")];
-       GameObject playerToSpawn = players[PlayerPrefs.GetInt("playerCharacter")];
-       PhotonNetwork.Instantiate(playerToSpawn.name, spawnPoint.position, Quaternion.identity);
+       int randomNumer = Random.Range(0, spawns.Length);
+       Transform spawnPoint = spawns[randomNumer];
+       PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
    }
 }

@@ -45,6 +45,13 @@ public class PlayerMovement : MonoBehaviour {
 
     void Awake() {
         rb = GetComponent<Rigidbody>();
+        if(!view.IsMine)
+        {
+            if (!view.IsMine && GameObject.FindGameObjectWithTag("WpnEyes") != null && GameObject.FindGameObjectWithTag("MainCamera") != null && GetComponent<PlayerMovement>())
+            Destroy(GameObject.FindGameObjectWithTag("WpnEyes"));
+            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
+            Destroy(GetComponent<PlayerMovement>());
+        }
     }
     
     void Start() {
@@ -52,6 +59,7 @@ public class PlayerMovement : MonoBehaviour {
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         view = GetComponent<PhotonView>();
+        
     }
 
     
@@ -94,9 +102,13 @@ public class PlayerMovement : MonoBehaviour {
         {
             StartCrouch();
         }
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKey(KeyCode.Escape))
         {
             Cursor.lockState = CursorLockMode.None;
+        }
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
         }
         }
        
