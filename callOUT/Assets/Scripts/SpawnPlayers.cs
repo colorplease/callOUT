@@ -6,12 +6,10 @@ using Photon.Pun;
 public class SpawnPlayers : MonoBehaviour
 {
    public GameObject player;
-   public Transform[] spawns;
+   public Transform spawn;
    
-   void Start()
+   void Awake()
    {
-       int randomNumer = Random.Range(0, spawns.Length);
-       Transform spawnPoint = spawns[randomNumer];
-       PhotonNetwork.Instantiate(player.name, spawnPoint.position, Quaternion.identity);
+       PhotonNetwork.Instantiate(player.name, spawn.position, Quaternion.identity);
    }
 }

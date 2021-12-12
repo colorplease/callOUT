@@ -48,9 +48,11 @@ public class PlayerMovement : MonoBehaviour {
         if(!view.IsMine)
         {
             if (!view.IsMine && GameObject.FindGameObjectWithTag("WpnEyes") != null && GameObject.FindGameObjectWithTag("MainCamera") != null && GetComponent<PlayerMovement>())
-            Destroy(GameObject.FindGameObjectWithTag("WpnEyes"));
-            Destroy(GameObject.FindGameObjectWithTag("MainCamera"));
-            Destroy(GetComponent<PlayerMovement>());
+            {
+            GameObject.FindGameObjectWithTag("WpnEyes").SetActive(false);
+            GameObject.FindGameObjectWithTag("MainCamera").SetActive(false);
+            GetComponent<PlayerMovement>().enabled = false;
+            }
         }
     }
     
