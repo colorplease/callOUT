@@ -1,23 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class WeaponSway : MonoBehaviour
 {
     [Header("Sway Settings")]
     public float smooth;
     public float swayMultiplier;
-    PhotonView view;
 
     void Start()
     {
-        view = GetComponentInParent<PhotonView>();
     }
     void Update()
     {
-        if (view.IsMine)
-        {
         //get mouse input
         float mouseX = Input.GetAxisRaw("Mouse X") * swayMultiplier;
         float mouseY = Input.GetAxisRaw("Mouse Y") * swayMultiplier;
@@ -30,7 +25,6 @@ public class WeaponSway : MonoBehaviour
 
         //rotate
         transform.localRotation = Quaternion.Slerp(transform.localRotation, targetRotation, smooth * Time.deltaTime);
-        }
 
     }
 }

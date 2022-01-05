@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Photon.Pun;
 
 public class ADS : MonoBehaviour
 {
@@ -31,11 +30,9 @@ public class ADS : MonoBehaviour
     float changedMaxSpeed;
     [SerializeField]float swayChange;
     public bool aiming;
-    PhotonView view;
 
     void Start()
     {
-        view = GetComponentInParent<PhotonView>();
         senseChangeX = snese.sensitivityX - 20f; 
         senseChangeY = snese.sensitivityY - 20f; 
         senseStartX = snese.sensitivityX;
@@ -47,8 +44,6 @@ public class ADS : MonoBehaviour
     }
     void Update()
     {
-        if (view.IsMine)
-        {
         if (Input.GetMouseButton(1))
         {
             Aim();
@@ -56,7 +51,6 @@ public class ADS : MonoBehaviour
         else if (transform.position != restPosition.position)
         {
             NotAimed();
-        }
         }
     }
     void Aim()
